@@ -10,51 +10,43 @@
             margin: 0;
             font-family: 'Audiowide', sans-serif;
             background: black;
-            overflow: hidden;
+            color: white;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
+            overflow: hidden;
         }
 
         .background {
             position: fixed;
             top: 0;
             left: 0;
-            width: 200%;
-            height: 200%;
+            width: 100%;
+            height: 100%;
             background-color: black;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
             z-index: -1;
-            overflow: hidden;
         }
 
-        .background::before {
-            content: "Project: Foundation VR ";
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            color: white;
-            font-size: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transform: rotate(-45deg);
-            display: block;
-            white-space: nowrap;
-            line-height: 100px;
-            overflow: hidden;
-            background-repeat: repeat;
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 3rem;
         }
 
         .content {
             position: relative;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            max-width: 400px;
+            width: 80%;
         }
 
         .content img {
-            max-width: 300px;
+            width: 100%;
+            height: auto;
             transition: transform 0.2s ease;
             cursor: pointer;
         }
@@ -66,8 +58,15 @@
 </head>
 <body>
     <div class="background"></div>
+    <div class="title">
+        <p>Project</p>
+        <p>Foundation VR</p>
+    </div>
     <div class="content">
         <img src="concept art.png" alt="Foundation VR" onclick="window.location.href='https://foundationvr.cargo.site';">
     </div>
 </body>
 </html>
+
+
+

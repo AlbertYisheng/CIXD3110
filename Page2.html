@@ -10,43 +10,70 @@
             margin: 0;
             font-family: 'Audiowide', sans-serif;
             background: black;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             overflow: hidden;
+            height: 100vh;
         }
 
         .background {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
+            top: -150%;
+            left: -150%;
+            width: 400%;
+            height: 400%;
+            background: black;
             z-index: -1;
+            transform: rotate(-30deg);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px;
+            animation: scrollDiagonal 30s linear infinite;
         }
 
-        .title {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 3rem;
+        .background span {
+            font-size: 20px;
+            color: white;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            margin: 20px;
+            animation: fadeEffect 10s linear infinite;
+        }
+
+        @keyframes scrollDiagonal {
+            from {
+                transform: rotate(-30deg) translate(0, 0);
+            }
+            to {
+                transform: rotate(-30deg) translate(-300px, 300px);
+            }
+        }
+
+        @keyframes fadeEffect {
+            0% {
+                opacity: 0.1;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            100% {
+                opacity: 0.1;
+            }
         }
 
         .content {
             position: relative;
-            max-width: 400px;
-            width: 80%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .content img {
-            width: 100%;
-            height: auto;
+            max-width: 300px;
             transition: transform 0.2s ease;
             cursor: pointer;
         }
@@ -57,10 +84,13 @@
     </style>
 </head>
 <body>
-    <div class="background"></div>
-    <div class="title">
-        <p>Project</p>
-        <p>Foundation VR</p>
+    <div class="background">
+        <!-- 自动生成足够多的文字 -->
+        <script>
+            for (let i = 0; i < 2000; i++) {
+                document.write('<span>Project: Foundation VR</span>');
+            }
+        </script>
     </div>
     <div class="content">
         <img src="concept art.png" alt="Foundation VR" onclick="window.location.href='https://foundationvr.cargo.site';">
